@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQTT IP Display</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+    <div class="validateBox">
+        <a href="https://strathmore.edu/" target="_blank"><img src="./images/strathmore university-transperent.png"></a>
+        <h2>Savanna Trace<br>LoRaWAN Gateway</h2>
+        <form>
+            <textarea placeholder="IP address details" id="textarea1" class="input"></textarea>
+            <br><br>
+            <button @click="executePythonScript">Request IP Address</button> <br><br>
+            
+            <button>
+                <a href="http://localhost/SavannaTrace/savanna1.py" download="savanna1.py" target="_blank">
+                    Download IP Data
+                </a>
+            </button> 
+        </form>
+    </div>
+
+    <!-- Video Download Button -->
+   
+    <script>
+        new Vue({
+            el: '.validateBox',
+            methods: {
+                executePythonScript() {
+                    fetch('http://localhost/savanna1.py')  // Replace 5000 with the correct port
+                        .then(response => response.text())  
+                        .then(data => {
+                            const textareaElement = document.getElementById('textarea1');
+                            textareaElement.value = data || 'No data received.';
+                        })
+                        .catch(error => {
+                            console.error('Error fetching data:', error);
+                        });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
