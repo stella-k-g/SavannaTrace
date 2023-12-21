@@ -9,7 +9,10 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
 
-<body>
+<body style="background: url('/SavannaTrace/images/strathmore-uni2.png') no-repeat center center fixed;
+              background-size:cover; width: 100%; height: 100%; margin: 0 auto; margin-top: 10px;
+    margin-bottom: 90px;">
+
     <div class="validateBox">
         <a href="https://strathmore.edu/" target="_blank"><img src="./images/strathmore university-transperent.png"></a>
         <h2>Savanna Trace<br>LoRaWAN Gateway</h2>
@@ -17,24 +20,23 @@
             <textarea placeholder="IP address details" id="textarea1" class="input"></textarea>
             <br><br>
             <button @click="executePythonScript">Request IP Address</button> <br><br>
-            
+
+ <!-- Python program Download Button -->
             <button>
                 <a href="http://localhost/SavannaTrace/savanna1.py" download="savanna1.py" target="_blank">
                     Download IP Data
                 </a>
-            </button> 
+            </button>
         </form>
     </div>
-
-    <!-- Python program Download Button -->
-   
+<!--vuejs instance-->
     <script>
         new Vue({
             el: '.validateBox',
             methods: {
                 executePythonScript() {
-                    fetch('http://localhost/savanna1.py')  
-                        .then(response => response.text())  
+                    fetch('http://localhost/savanna1.py')
+                        .then(response => response.text())
                         .then(data => {
                             const textareaElement = document.getElementById('textarea1');
                             textareaElement.value = data || 'No data received.';
@@ -47,4 +49,5 @@
         });
     </script>
 </body>
+
 </html>
