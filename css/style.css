@@ -49,14 +49,12 @@ button {
     line-height: 25px;
     padding: 10px;
     border-radius: 25px;
-    /* background-color:#a34f00; */
     background-color: rgb(110, 27, 27);
     color:white; 
     cursor: pointer;
 }
 
 button:hover {
-    /* background: rgb(110, 27, 27); */
     background:#a34f00;
     color: white;
 }
