@@ -33,7 +33,7 @@
             el: '.validateBox',
             methods: {
                 executePythonScript() {
-                    fetch('http://localhost/savanna1.py')  // Replace 5000 with the correct port
+                    fetch('http://localhost/savanna1.py')  
                         .then(response => response.text())  
                         .then(data => {
                             const textareaElement = document.getElementById('textarea1');
